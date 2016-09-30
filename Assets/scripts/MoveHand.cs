@@ -9,6 +9,7 @@ public class MoveHand : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //special for github
         //отключение видимости курсора
         Cursor.visible = false;
     }
