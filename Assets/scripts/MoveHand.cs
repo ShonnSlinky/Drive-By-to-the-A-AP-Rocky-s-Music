@@ -11,7 +11,7 @@ public class MoveHand : MonoBehaviour {
     void Start () {
         //special for github
         //отключение видимости курсора
-        Cursor.visible = false;
+       // Cursor.visible = false;
     }
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class MoveHand : MonoBehaviour {
         float mousePosX = Input.mousePosition.x;
         float mousePosY = Input.mousePosition.y;
         //затем подставляются в новый вектор (положение) объекта на экране
-        hand.transform.position = new Vector2(mousePosX, mousePosY);
+        hand.transform.position = new Vector2((mousePosX-15), (mousePosY-15));
 
     }
 }

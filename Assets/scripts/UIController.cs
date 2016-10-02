@@ -3,27 +3,32 @@ using System.Collections;
 
 public class UIController : MonoBehaviour {
     [SerializeField]
-    GameObject Radio;
+    GameObject radio;
     [SerializeField]
-    GameObject Back;
+    GameObject street;
     [SerializeField]
-    GameObject Menu;
+    GameObject menu;
     // Use this for initialization
     void Start () {
-        Radio.SetActive(false);
+        radio.SetActive(false);
+        street.SetActive(false);
 	}
 	
     public void OnPoupMenuOpen()
     {
-        Radio.SetActive(true);
+        Cursor.visible = false;
+        radio.SetActive(true);
+        street.SetActive(true);
     }
 
-    private void OnPoupMenuClose()
+    public void OnPoupMenuClose()
     {
-        Radio.SetActive(false);
+        Cursor.visible = true;
+        radio.SetActive(false);
+        street.SetActive(false);
     }
-    private void OnMenuOpen()
+    public void OnMenuOpen()
     {
-
+        Debug.Log("OnMenuOpen is active!");
     }
 }
