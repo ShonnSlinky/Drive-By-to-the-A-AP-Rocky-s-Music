@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour {
     GameObject street;
     [SerializeField]
     GameObject menu;
+
     // Use this for initialization
     void Start () {
         radio.SetActive(false);
@@ -19,6 +20,8 @@ public class UIController : MonoBehaviour {
         Cursor.visible = false;
         radio.SetActive(true);
         street.SetActive(true);
+       // Time.timeScale = 0;
+
     }
 
     public void OnPoupMenuClose()
@@ -26,6 +29,7 @@ public class UIController : MonoBehaviour {
         Cursor.visible = true;
         radio.SetActive(false);
         street.SetActive(false);
+       // Time.timeScale = 1;
     }
     public void OnMenuOpen()
     {

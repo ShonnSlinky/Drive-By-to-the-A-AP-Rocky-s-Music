@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class Jump : MonoBehaviour {
-    //для курсора при прыжке//////////////////////////
+    //для курсора при прыжке и стрельбе//////////////////////////
     [SerializeField]
     public Texture2D jump;
-    public Collider2D collider;
+
+    [SerializeField]
+    public Texture2D shoot;
+
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     /////////////////////////////////////////////////
@@ -13,6 +16,7 @@ public class Jump : MonoBehaviour {
     Animator anim;
 	// Use this for initialization
 	void Start () {
+        Cursor.SetCursor(shoot, hotSpot, cursorMode);
         anim = GetComponent<Animator>();
 	}
 
@@ -27,13 +31,18 @@ public class Jump : MonoBehaviour {
         {
             anim.SetBool("Jump", false);
         }
-        //пока что не работает//////////////////////////
-        if(collider.isTrigger){
-            Cursor.SetCursor(jump, hotSpot, cursorMode);
-        }
-        ////////////////////////////////////////////////
-    }
 
+    }
+/***************для изменения курсора*****************/
+    public void OnMouseEnter()
+    {
+        Cursor.SetCursor(jump, hotSpot, cursorMode);
+    }
+    public void OnMouseExit()
+    {
+        Cursor.SetCursor(shoot, hotSpot, cursorMode);
+    }
+/*****************************************************/
         //управление прыжком на нажатие клавиши мыши 
         public void OnMouseDown()
         {
